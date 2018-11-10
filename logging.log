@@ -1,0 +1,179 @@
+2018/11/06 10:42:02 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/06 10:42:03 - root - INFO - ICTmodel-创建数据成功！
+2018/11/06 10:42:03 - root - INFO - ICTmodel-初始化数据成功！
+2018/11/06 10:42:03 - root - INFO - ICTmodel-开始迭代
+2018/11/06 10:42:47 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/06 10:42:48 - root - INFO - ICTmodel-创建数据成功！
+2018/11/06 10:42:50 - root - INFO - ICTmodel-初始化数据成功！
+2018/11/06 10:42:50 - root - INFO - ICTmodel-开始迭代
+2018/11/07 00:46:47 - root - INFO - ICTmodel-theta计算完成
+2018/11/07 00:46:48 - root - INFO - ICTmodel-phi计算完成
+2018/11/07 00:46:48 - root - INFO - ICTmodel-psi计算完成
+2018/11/07 00:46:48 - root - INFO - ICTmodel-omega计算完成
+2018/11/07 00:46:51 - root - INFO - ICTmodel-结果保存完成
+2018/11/07 00:46:53 - root - INFO - Readdoc-程序结束
+2018/11/07 09:44:30 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 09:44:31 - root - INFO - ICTmodel-创建数据成功！
+2018/11/07 09:44:33 - root - INFO - ICTmodel-初始化数据成功！
+2018/11/07 09:44:33 - root - INFO - ICTmodel-开始迭代
+2018/11/07 09:44:58 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 09:44:59 - root - INFO - ICTmodel-创建数据成功！
+2018/11/07 09:45:02 - root - INFO - ICTmodel-初始化数据成功！
+2018/11/07 09:45:02 - root - INFO - ICTmodel-开始迭代
+2018/11/07 10:32:26 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 10:39:17 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 10:39:23 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 10:39:23 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 10:39:24 - jieba - DEBUG - __init__-Loading model cost 1.290 seconds.
+2018/11/07 10:39:24 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 10:44:44 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 10:44:55 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 10:44:55 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 10:44:56 - jieba - DEBUG - __init__-Loading model cost 1.097 seconds.
+2018/11/07 10:44:56 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 10:52:52 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 10:53:04 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 10:53:04 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 10:53:05 - jieba - DEBUG - __init__-Loading model cost 1.387 seconds.
+2018/11/07 10:53:05 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 11:01:53 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 11:01:54 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 11:01:54 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 11:01:55 - jieba - DEBUG - __init__-Loading model cost 1.139 seconds.
+2018/11/07 11:01:55 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 11:09:27 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 11:09:29 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 11:09:29 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 11:09:30 - jieba - DEBUG - __init__-Loading model cost 1.253 seconds.
+2018/11/07 11:09:30 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 11:10:29 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 11:10:31 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 11:10:31 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 11:10:32 - jieba - DEBUG - __init__-Loading model cost 1.206 seconds.
+2018/11/07 11:10:32 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 11:22:43 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 11:22:44 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 11:22:44 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 11:22:45 - jieba - DEBUG - __init__-Loading model cost 1.189 seconds.
+2018/11/07 11:22:45 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:11:08 - root - INFO - Readdoc-程序结束
+2018/11/07 12:20:23 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:20:24 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:20:24 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:20:25 - jieba - DEBUG - __init__-Loading model cost 1.104 seconds.
+2018/11/07 12:20:25 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:23:20 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:23:21 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:23:21 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:23:23 - jieba - DEBUG - __init__-Loading model cost 1.196 seconds.
+2018/11/07 12:23:23 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:34:33 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:34:34 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:34:34 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:34:36 - jieba - DEBUG - __init__-Loading model cost 1.526 seconds.
+2018/11/07 12:34:36 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:37:03 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:37:04 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:37:04 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:37:05 - jieba - DEBUG - __init__-Loading model cost 1.030 seconds.
+2018/11/07 12:37:05 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:38:35 - root - INFO - Readdoc-程序结束
+2018/11/07 12:43:36 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:43:38 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:43:38 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:43:40 - jieba - DEBUG - __init__-Loading model cost 1.912 seconds.
+2018/11/07 12:43:40 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:47:06 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:47:07 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:47:07 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:47:08 - jieba - DEBUG - __init__-Loading model cost 1.283 seconds.
+2018/11/07 12:47:08 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:51:48 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:51:49 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:51:49 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:51:50 - jieba - DEBUG - __init__-Loading model cost 1.400 seconds.
+2018/11/07 12:51:50 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 12:52:32 - root - INFO - Readdoc-程序结束
+2018/11/07 12:55:53 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 12:55:54 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 12:55:54 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 12:55:56 - jieba - DEBUG - __init__-Loading model cost 1.364 seconds.
+2018/11/07 12:55:56 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 13:07:38 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 13:07:39 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 13:07:39 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 13:07:41 - jieba - DEBUG - __init__-Loading model cost 1.453 seconds.
+2018/11/07 13:07:41 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 13:09:17 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 13:09:18 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 13:09:18 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 13:09:20 - jieba - DEBUG - __init__-Loading model cost 2.202 seconds.
+2018/11/07 13:09:20 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 13:10:23 - root - INFO - Readdoc-程序结束
+2018/11/07 14:09:20 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 14:09:21 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 14:09:21 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 14:09:24 - jieba - DEBUG - __init__-Loading model cost 2.190 seconds.
+2018/11/07 14:09:24 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 14:10:23 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 14:10:26 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 14:10:26 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 14:10:28 - jieba - DEBUG - __init__-Loading model cost 2.302 seconds.
+2018/11/07 14:10:28 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 14:16:25 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 14:16:27 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 14:16:27 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 14:16:29 - jieba - DEBUG - __init__-Loading model cost 1.989 seconds.
+2018/11/07 14:16:29 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 14:26:52 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 14:26:56 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 14:26:56 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 14:26:59 - jieba - DEBUG - __init__-Loading model cost 2.408 seconds.
+2018/11/07 14:26:59 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 14:36:24 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 14:36:27 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 14:36:27 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 14:36:29 - jieba - DEBUG - __init__-Loading model cost 2.030 seconds.
+2018/11/07 14:36:29 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 14:40:14 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 14:40:19 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 14:40:19 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 14:40:22 - jieba - DEBUG - __init__-Loading model cost 2.747 seconds.
+2018/11/07 14:40:22 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 14:54:16 - root - INFO - Readdoc-程序结束
+2018/11/07 15:15:14 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 15:15:17 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 15:15:18 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 15:15:20 - jieba - DEBUG - __init__-Loading model cost 2.758 seconds.
+2018/11/07 15:15:20 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 15:17:37 - root - INFO - Readdoc-程序结束
+2018/11/07 15:35:36 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 15:35:40 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 15:35:40 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 15:35:42 - jieba - DEBUG - __init__-Loading model cost 2.212 seconds.
+2018/11/07 15:35:42 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 15:37:00 - root - INFO - Readdoc-程序结束
+2018/11/07 16:08:48 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 16:08:52 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 16:08:52 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 16:08:54 - jieba - DEBUG - __init__-Loading model cost 2.048 seconds.
+2018/11/07 16:08:54 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 16:10:29 - root - INFO - Readdoc-程序结束
+2018/11/07 16:14:16 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/07 16:14:19 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/07 16:14:19 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/07 16:14:21 - jieba - DEBUG - __init__-Loading model cost 2.485 seconds.
+2018/11/07 16:14:21 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/07 16:16:29 - root - INFO - Readdoc-程序结束
+2018/11/08 11:23:46 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/08 11:23:48 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/08 11:23:48 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/08 11:23:49 - jieba - DEBUG - __init__-Loading model cost 0.993 seconds.
+2018/11/08 11:23:49 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/08 11:24:41 - root - INFO - Readdoc-程序结束
+2018/11/08 11:36:34 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/08 11:36:35 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/08 11:36:35 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/08 11:36:36 - jieba - DEBUG - __init__-Loading model cost 0.988 seconds.
+2018/11/08 11:36:36 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/08 11:37:27 - root - INFO - Readdoc-程序结束
