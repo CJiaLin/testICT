@@ -1,9 +1,6 @@
-import math
-import pandas as pd
+#TF-IDF与ICT结果加权进行排序推荐
 import jieba
 from tqdm import tqdm
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 class resulttest():

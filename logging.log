@@ -177,3 +177,417 @@
 2018/11/08 11:36:36 - jieba - DEBUG - __init__-Loading model cost 0.988 seconds.
 2018/11/08 11:36:36 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
 2018/11/08 11:37:27 - root - INFO - Readdoc-程序结束
+2018/11/20 18:02:45 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/20 18:03:08 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/20 18:03:08 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/20 18:03:10 - jieba - DEBUG - __init__-Dumping model to file cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/20 18:03:10 - jieba - DEBUG - __init__-Loading model cost 1.566 seconds.
+2018/11/20 18:03:10 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/20 18:04:10 - root - INFO - DuedocByTFIDF-分词开始
+2018/11/20 18:04:10 - DuedocByTFIDF - ERROR - DuedocByTFIDF-分词过程错误！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\DuedocByTFIDF.py", line 64, in due
+    self.title[i] = jieba.lcut_for_search(self.title[i])
+  File "D:\Anaconda\lib\site-packages\jieba\__init__.py", line 336, in lcut_for_search
+    return list(self.cut_for_search(*args, **kwargs))
+  File "D:\Anaconda\lib\site-packages\jieba\__init__.py", line 319, in cut_for_search
+    for w in words:
+  File "D:\Anaconda\lib\site-packages\jieba\__init__.py", line 282, in cut
+    sentence = strdecode(sentence)
+  File "D:\Anaconda\lib\site-packages\jieba\_compat.py", line 37, in strdecode
+    sentence = sentence.decode('utf-8')
+AttributeError: 'list' object has no attribute 'decode'
+2018/11/20 18:04:27 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/20 18:04:27 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/20 18:09:10 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/20 18:09:10 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/20 18:09:10 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/20 18:09:11 - jieba - DEBUG - __init__-Loading model cost 0.944 seconds.
+2018/11/20 18:09:11 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/20 18:10:10 - root - INFO - DuedocByTFIDF-分词开始
+2018/11/20 18:13:44 - root - INFO - DuedocByTFIDF-分词结束！
+2018/11/20 18:14:16 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/20 18:14:16 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/21 16:07:18 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/21 16:07:19 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/21 16:07:19 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/21 16:37:59 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/21 16:38:00 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/21 16:38:00 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/21 16:54:05 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/21 16:54:07 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/21 16:54:07 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/21 17:16:39 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/21 17:16:40 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/21 17:16:40 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/21 17:18:10 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/21 17:18:11 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/21 17:18:11 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/21 17:54:09 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/21 17:54:09 - root - INFO - Readdoc-程序结束
+2018/11/22 14:33:52 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 14:33:53 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 14:33:53 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 14:35:13 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 14:35:13 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 14:35:13 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 14:35:56 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 14:35:56 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 14:35:56 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 14:40:50 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 14:40:51 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 14:40:51 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 14:42:29 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 14:42:29 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 14:42:29 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 14:43:48 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/22 14:43:48 - root - INFO - Readdoc-程序结束
+2018/11/22 15:11:00 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:11:01 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 15:11:01 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 15:14:39 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:14:40 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 15:14:40 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 15:15:53 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/22 15:15:53 - root - INFO - Readdoc-程序结束
+2018/11/22 15:18:47 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:18:48 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 15:18:48 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 15:21:03 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:21:04 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 15:21:04 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 15:27:29 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:27:30 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 15:27:30 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 15:28:35 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/22 15:28:36 - root - INFO - Readdoc-程序结束
+2018/11/22 15:32:14 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:33:42 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 15:33:42 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 79, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 136, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 15:33:42 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 15:34:26 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:34:32 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 15:34:32 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 79, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 136, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 15:34:32 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 15:38:12 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:38:19 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 15:38:19 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 79, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 136, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 15:38:19 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 15:40:54 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:40:59 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 15:40:59 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 79, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 136, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 15:40:59 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 15:57:11 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 15:57:17 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 15:57:17 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 78, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 134, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 15:57:17 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 16:05:54 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:05:55 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:05:55 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 78, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 134, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 16:05:55 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 16:20:07 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:20:08 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:20:08 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:\机器学习\testICT\ICTModelParallel.py", line 78, in __init__
+    self.init_value()
+  File "E:\机器学习\testICT\ICTModelParallel.py", line 134, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 16:20:08 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 16:21:03 - root - INFO - ICTModelParallel-theta计算完成
+2018/11/22 16:21:03 - root - INFO - ICTModelParallel-phi计算完成
+2018/11/22 16:21:03 - root - INFO - ICTModelParallel-psi计算完成
+2018/11/22 16:21:03 - root - INFO - ICTModelParallel-omega计算完成
+2018/11/22 16:24:47 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:24:48 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:29:15 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:29:16 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 16:29:16 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 16:29:20 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:29:22 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 16:29:22 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 16:30:37 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/22 16:30:37 - root - INFO - Readdoc-程序结束
+2018/11/22 16:31:59 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:32:00 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:32:00 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 78, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 134, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+IndexError: list index out of range
+2018/11/22 16:32:00 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 16:32:48 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:32:49 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:40:14 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:40:15 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 16:40:15 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 16:41:36 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/22 16:41:37 - root - INFO - Readdoc-程序结束
+2018/11/22 16:42:34 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:42:35 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:42:35 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 78, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 134, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+KeyError: '声表面波气体传感器'
+2018/11/22 16:42:35 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 16:45:50 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:45:51 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:54:55 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 78, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 134, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+KeyError: '声表面波气体传感器'
+2018/11/22 16:54:55 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 16:55:12 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:55:13 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 16:55:36 - root - ERROR - ICTModelParallel-数据初始化失败！
+Traceback (most recent call last):
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 78, in __init__
+    self.init_value()
+  File "E:/机器学习/testICT\ICTModelParallel.py", line 134, in init_value
+    word_id = self.word2id[self.fenciinf[m][0][n]]
+KeyError: '声表面波气体传感器'
+2018/11/22 16:55:36 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 16:55:58 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 16:55:59 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:11:17 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:11:18 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 17:11:18 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 17:12:18 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/22 17:12:18 - root - INFO - Readdoc-程序结束
+2018/11/22 17:15:18 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:15:19 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 17:15:19 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 17:16:11 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:16:13 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/22 17:16:13 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/22 17:17:26 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/22 17:17:27 - root - INFO - Readdoc-程序结束
+2018/11/22 17:18:59 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:19:00 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:19:10 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:19:10 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:23:50 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:23:51 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:24:00 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:24:00 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:31:59 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:32:00 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:32:09 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:32:09 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:33:27 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:33:28 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:33:37 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:33:37 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:42:17 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:42:18 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:42:27 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:42:27 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:43:49 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:43:50 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:43:59 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:43:59 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:47:50 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:47:51 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:47:59 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:47:59 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:55:16 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:55:17 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:55:26 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:55:26 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 17:56:47 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 17:56:48 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 17:56:56 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 17:56:56 - root - INFO - ICTModelParallel-开始迭代
+2018/11/22 18:10:15 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 18:10:16 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 18:11:51 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/22 18:11:52 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/22 18:11:59 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/22 18:12:03 - root - INFO - ICTModelParallel-开始迭代
+2018/11/23 13:47:27 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/23 13:47:29 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/23 13:47:36 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/23 13:47:45 - root - INFO - ICTModelParallel-开始迭代
+2018/11/23 14:02:15 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/23 14:02:16 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/23 14:02:23 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/23 14:02:23 - root - INFO - ICTModelParallel-开始迭代
+2018/11/23 14:10:01 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/23 14:10:02 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/23 14:10:11 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/23 14:10:11 - root - INFO - ICTModelParallel-开始迭代
+2018/11/23 14:30:24 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/23 14:30:25 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/23 14:30:33 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/23 14:30:33 - root - INFO - ICTModelParallel-开始迭代
+2018/11/23 14:39:37 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/23 14:39:38 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/23 14:39:45 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/23 14:39:45 - root - INFO - ICTModelParallel-开始迭代
+2018/11/23 16:17:01 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/23 16:17:03 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/23 16:17:11 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/23 16:17:11 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 14:48:34 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 14:48:37 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 14:48:46 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 14:48:46 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 15:00:00 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 15:00:01 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 15:00:09 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 15:00:09 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 15:17:03 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 15:17:04 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 15:17:12 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 15:17:12 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 15:26:05 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 15:26:06 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 15:26:14 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 15:26:14 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 15:39:53 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 15:40:13 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 15:41:08 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 15:41:08 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 15:50:15 - root - INFO - ICTModelParallel-第90次迭代结果保存完成
+2018/11/26 15:53:05 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 15:53:07 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 15:53:16 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 15:53:16 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 17:32:38 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 17:32:39 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 17:32:42 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 17:32:42 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 17:34:30 - root - INFO - ICTModelParallel-第45次迭代结果保存完成
+2018/11/26 17:37:23 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 17:37:24 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/26 17:37:35 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/26 17:37:35 - root - INFO - ICTModelParallel-开始迭代
+2018/11/26 18:29:22 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:29:23 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:29:23 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:30:40 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/26 18:30:41 - root - INFO - Readdoc-程序结束
+2018/11/26 18:33:52 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:33:52 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/26 18:33:52 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/26 18:33:53 - jieba - DEBUG - __init__-Loading model cost 0.933 seconds.
+2018/11/26 18:33:53 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/26 18:34:50 - root - INFO - DuedocByTFIDF-分词开始
+2018/11/26 18:40:14 - root - INFO - DuedocByTFIDF-分词结束！
+2018/11/26 18:40:14 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:40:14 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:44:14 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:44:15 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:44:15 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:46:25 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:46:26 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:46:26 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:48:00 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:48:02 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:48:02 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:51:17 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:51:18 - root - INFO - Duedoc-处理初步分词结果
+2018/11/26 18:51:18 - root - INFO - Duedoc-读取fenci.txt文件
+2018/11/26 18:51:18 - root - INFO - Duedoc-DataFrame数据格式转换成功！
+2018/11/26 18:51:18 - root - INFO - Duedoc-词频统计结束！
+2018/11/26 18:51:18 - root - INFO - Duedoc-高频词移除
+2018/11/26 18:51:19 - root - INFO - Duedoc-分词结果、词频统计结果保存
+2018/11/26 18:51:19 - root - INFO - Readdoc-程序结束
+2018/11/26 18:52:46 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:52:47 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:52:47 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:54:01 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:54:02 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:54:02 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:55:31 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/26 18:55:31 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/26 18:55:31 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/26 18:56:46 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/26 18:56:47 - root - INFO - Readdoc-程序结束
+2018/11/28 23:35:58 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/28 23:35:59 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/28 23:36:00 - jieba - DEBUG - __init__-Dumping model to file cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/28 23:36:00 - jieba - DEBUG - __init__-Loading model cost 1.520 seconds.
+2018/11/28 23:36:00 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/28 23:36:48 - root - INFO - DuedocByTFIDF-分词开始
+2018/11/28 23:39:24 - root - INFO - DuedocByTFIDF-分词结束！
+2018/11/28 23:39:24 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/28 23:39:24 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/28 23:42:25 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/28 23:42:26 - root - INFO - Readdoc-程序结束
+2018/11/29 09:16:19 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/29 09:16:20 - jieba - DEBUG - __init__-Building prefix dict from the default dictionary ...
+2018/11/29 09:16:20 - jieba - DEBUG - __init__-Loading model from cache C:\Users\LIN\AppData\Local\Temp\jieba.cache
+2018/11/29 09:16:21 - jieba - DEBUG - __init__-Loading model cost 0.918 seconds.
+2018/11/29 09:16:21 - jieba - DEBUG - __init__-Prefix dict has been built succesfully.
+2018/11/29 09:17:16 - root - INFO - DuedocByTFIDF-分词开始
+2018/11/29 09:20:14 - root - INFO - DuedocByTFIDF-分词结束！
+2018/11/29 09:20:14 - root - INFO - DuedocByTFIDF-处理初步分词结果
+2018/11/29 09:20:14 - root - INFO - DuedocByTFIDF-读取fenci.txt文件
+2018/11/29 09:23:40 - root - INFO - DuedocByTFIDF-分词结果、词频统计结果保存
+2018/11/29 09:23:41 - root - INFO - Readdoc-程序结束
+2018/11/29 09:24:13 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/29 09:24:14 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/29 09:24:19 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/29 09:24:19 - root - INFO - ICTModelParallel-开始迭代
+2018/11/29 09:24:39 - root - INFO - ICTModelParallel-第0次迭代结果保存完成
+2018/11/29 10:32:32 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/29 10:32:32 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/29 10:32:38 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/29 10:32:38 - root - INFO - ICTModelParallel-开始迭代
+2018/11/29 10:32:43 - root - INFO - ICTModelParallel-第0次迭代结果保存完成
+2018/11/29 10:35:55 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/29 10:35:56 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/29 10:36:01 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/29 10:36:01 - root - INFO - ICTModelParallel-开始迭代
+2018/11/29 10:36:09 - root - INFO - ICTModelParallel-第0次迭代结果保存完成
+2018/11/29 10:53:21 - __main__ - INFO - Readdoc-专利数据读取成功！
+2018/11/29 10:53:22 - root - INFO - ICTModelParallel-创建数据成功！
+2018/11/29 10:53:28 - root - INFO - ICTModelParallel-初始化数据成功！
+2018/11/29 10:53:28 - root - INFO - ICTModelParallel-开始迭代
+2018/11/29 11:13:13 - root - INFO - ICTModelParallel-第0次迭代结果保存完成

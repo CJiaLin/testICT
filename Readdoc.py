@@ -1,16 +1,15 @@
 #!/usr/bin/python
 #coding=utf-8
-import os
-from Duedoc import Duedoc
-#from DuedocByTFIDF import Duedoc
-from ICTmodel import ICT
-#from rewriterICT import ICT
-import pandas as pd
-from perplexity import per
-import operator
+#主程序，用于处理文档、运行模型等
 import logging
+import operator
+import os
+import pandas as pd
+#from Duedoc import Duedoc
+from DuedocByTFIDF import Duedoc
+#from ICTmodel import ICT
+from ICTModelParallel import ICT
 from ResultTest import resulttest
-
 
 logging.basicConfig(level=logging.DEBUG,
                     filename='logging.log',
@@ -34,18 +33,6 @@ def readdoc():
     #M = len(files)
     length_single = 0
     #提取文件中专利的简介、公司、发明人信息
-    '''for file in files:
-        if not os.path.isdir(file):
-            xlsx_f = xlrd.open_workbook(filepath+'\\'+file)
-            ALL = xlsx_f.sheet_by_name('Sheet1')
-            abstract = ALL.col_values(4)
-            inventors = ALL.col_values(13)
-            companies = ALL.col_values(12)
-            for i in range(len(abstract)):
-                inventor = inventors[i].split(',')
-                company = companies[i].split(',')
-                patentinf.append([abstract[i],inventor,company])'''
-
     for file in files:
         if not os.path.isdir(file):
             f = open(filepath+'/'+file,encoding='utf-8')
@@ -63,19 +50,22 @@ def readdoc():
                     patentinf.append([title[i],abstract[i],inventor,company])
                     titles.append(title[i])
                 else:
+                    patentinf.append([title[i],abstract[i],inventor,company])
+                    titles.append(title[i])
                     testinf.append([title[i],inventor,company])
-
 
     logger.info("专利数据读取成功！")
     return patentinf,testinf,titles,abstract
 
+#分词、并对分词结果进行词频统计、计算TF-IDF等
 def duedoc(patentinf):
     doc = Duedoc(patentinf)
     #del(patentinf)
-    #doc.due()
+    doc.due()
     doc.duefenci()
     del doc
 
+#运行ICT模型获取结果
 def saveinf(patentinf,topicnum):
     inventor2id = {}
     company2id = {}
@@ -98,13 +88,11 @@ def saveinf(patentinf,topicnum):
         for i in range(len(lines)):
             length_all.append(int(lines[i].strip('\n')))
 
-    with open('word_result/wordmap.txt', 'w', encoding='utf-8') as wordmap:
-        with open('word_result/count.txt', 'r', encoding='utf-8') as count:
-            lines = count.readlines()
-            length_single = len(lines)
-            for i in range(length_single):
-                wordmap.write(lines[i].split(':')[0] + ':' + str(i) + '\n')
-                word2id[lines[i].split(':')[0].strip('\n')] = i
+    with open('word_result/wordmap.txt', 'r', encoding='utf-8') as wordmap:
+        lines = wordmap.readlines()
+        for line in lines:
+            word2id[line.strip('\n').split(':')[0]] = int(line.strip('\n').split(':')[1])
+        length_single = len(word2id)
 
     with open('word_result/inventorsmap.txt','w',encoding='utf-8') as inventors:
         for inventor,num in inventor2id.items():
@@ -120,10 +108,10 @@ def saveinf(patentinf,topicnum):
             patentinf[i][0] = lines[i].split('----')[0].split(';')[:-1]
             patentinf[i][1] = lines[i].split('----')[1].split(';')[:-1]
 
-    ict = ICT(topicnum,1000,length_all,length_single,patentinf,word2id,inventor2id,company2id)
-    #ict = HierarchicICT(topicnum, 1000, length_all, length_single, patentinf, word2id, inventor2id, company2id)
+    ict = ICT(topicnum,100,length_all,length_single,patentinf,word2id,inventor2id,company2id)
     ict.save()
 
+#获取每个主题下的Top30词
 def outpu(topicnum):
     result = []
     result_sort = []
@@ -163,7 +151,8 @@ def outpu(topicnum):
 
     #print(topic)
 
-def cal_perp(topicnum,patentinf):
+#计算perplexity
+'''def cal_perp(topicnum,patentinf):
     inventor2id = {}
     company2id = {}
     id2word = {}
@@ -185,8 +174,9 @@ def cal_perp(topicnum,patentinf):
     perp = per(topicnum,patentinf,inventor2id,company2id)
     perp_result = perp.calculate()
 
-    return perp_result
+    return perp_result'''
 
+#专利推荐测试
 def test(topicnum,patentinf,word):
     inventor2id = {}
     company2id = {}
@@ -218,12 +208,12 @@ if __name__ == "__main__":
     #topicnum = [5,10,15,20,25,30,35]
     perp = []
     patentinf,testinf,titles,abstract = readdoc()
-    #duedoc(patentinf)
+    duedoc(patentinf)
     #saveinf(patentinf,topicnum)
     #outpu(topicnum)
 
     #del patentinf,testinf,titles,abstract
-    with open('word_result/wordmap.txt', 'r', encoding='utf-8') as wordmap:
+    '''with open('word_result/wordmap.txt', 'r', encoding='utf-8') as wordmap:
         lines = wordmap.readlines()
         for line in lines:
             word2id[line.split(':')[0]] = int(line.split(':')[1])
@@ -242,6 +232,6 @@ if __name__ == "__main__":
 
     csv = pd.DataFrame(columns=name, data=result)
 
-    csv.to_csv('./result/topdoc' + str(topicnum) + '.csv')
+    csv.to_csv('./result/topdoc' + str(topicnum) + '.csv')'''
 
     logging.info("程序结束")
