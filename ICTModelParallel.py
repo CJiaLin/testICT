@@ -62,10 +62,10 @@ class ICT():
         self.inventor2id = inventor2id
         self.company2id = company2id
         self.fenciinf = []
-        self.savenum = 100                      #每迭代多少次保存参数
+        self.savenum = 50                      #每迭代多少次保存参数
         self.omega = 0.01
-        self.part = int(len(fenciinf)/4)        #每一部分训练集大小
-        self.program = 4
+        self.program = 10
+        self.part = int(len(fenciinf)/self.program)        #每一部分训练集大小
         self.Kalpha = self.K * self.alpha
         self.Vbeta = self.V * self.beta
         self.Cmu = self.C * self.mu
@@ -155,19 +155,19 @@ class ICT():
     def iter(self):
         logging.info("开始迭代")
         self.middle_save(0)
-        for t in tqdm(range(20)):
-            nw = [None] * 4
-            nwsum = [None] * 4
-            m = [None] * 4
-            msum = [None] * 4
-            nc = [None] * 4
-            ncsum = [None] * 4
-            nd = [None] * 4
-            word = [None] * 4
-            inventor = [None] * 4
+        for t in tqdm(range(int(self.iternum/self.savenum))):
+            nw = [None] * self.program
+            nwsum = [None] * self.program
+            m = [None] * self.program
+            msum = [None] * self.program
+            nc = [None] * self.program
+            ncsum = [None] * self.program
+            nd = [None] * self.program
+            word = [None] * self.program
+            inventor = [None] * self.program
 
             result = []
-            p = Pool(4)
+            p = Pool(self.program)
             try:
                 for j in range(self.program):
                     if j != self.program-1:
@@ -175,15 +175,17 @@ class ICT():
                                                           self.doclength[j*self.part:(j+1)*self.part],
                                                           self.word[j*self.part:(j+1)*self.part],
                                                           self.inventor[j*self.part:(j+1)*self.part],
-                                                          self.nw, self.nwsum, self.m, self.msum, self.nc, self.ncsum,
-                                                          self.nd[j*self.part:(j+1)*self.part])))
+                                                          self.nw.copy(), self.nwsum.copy(), self.m.copy(), \
+                                                          self.msum.copy(), self.nc.copy(), self.ncsum.copy(), \
+                                                          self.nd[j*self.part:(j+1)*self.part],)))
                     else:
                         result.append(p.apply_async(func, (self,self.fenciinf[j*self.part:],
                                                           self.doclength[j*self.part:],
                                                           self.word[j*self.part:],
                                                           self.inventor[j*self.part:],
-                                                          self.nw, self.nwsum, self.m, self.msum, self.nc, self.ncsum,
-                                                          self.nd[j*self.part:])))
+                                                          self.nw.copy(), self.nwsum.copy(), self.m.copy(),  \
+                                                          self.msum.copy(), self.nc.copy(), self.ncsum.copy(), \
+                                                          self.nd[j*self.part:],)))
             except Exception as e:
                 logging.error("第"+str((t+1) * int(self.iternum/10))+"次迭代失败", exc_info = True)
 
@@ -198,25 +200,60 @@ class ICT():
                 i += 1
 
             for i in range(len(self.nw)):
-                self.nw[i] = list(map(lambda a:a[0] + a[1] + a[2] + a[3], zip(nw[0][i],nw[1][i],nw[2][i],nw[3][i])))
+                self.nwsum[i] = 0
+                for j in range(len(self.nw[i])):
+                    new = 0
+                    for k in range(len(nw)):
+                        new += nw[k][i][j] - self.nw[i][j]
+                    self.nw[i][j] += new
+                    self.nwsum[i] += self.nw[i][j]
 
-            self.nwsum = list(map(lambda a:a[0] + a[1] + a[2] + a[3], zip(nwsum[0],nwsum[1],nwsum[2],nwsum[3])))
+                #self.nw[i] = list(map(lambda a: sum(a), list(zip(*list(item[i] for item in nw))))) #nw[0][i],nw[1][i],nw[2][i],nw[3][i])))
 
             for i in range(len(self.m)):
-                self.m[i] = list(map(lambda a: a[0] + a[1] + a[2] + a[3], zip(m[0][i], m[1][i], m[2][i], m[3][i])))
+                self.msum[i] = 0
+                for j in range(len(self.m[i])):
+                    new = 0
+                    for k in range(len(m)):
+                        new += m[k][i][j] - self.m[i][j]
+                    self.m[i][j] += new
+                    self.msum[i] += self.m[i][j]
 
-            self.msum = list(map(lambda a:a[0] + a[1] + a[2] + a[3], zip(msum[0],msum[1],msum[2],msum[3])))
+            #for i in range(len(self.m)):
+                #self.m[i] = list(map(lambda a: sum(a), list(zip(*list(item[i] for item in m)))))
+
+            #self.msum = list(map(lambda a: sum(a) , list(zip(*msum))))
 
             for i in range(len(self.nc)):
-                self.nc[i] = list(map(lambda a: a[0] + a[1] + a[2] + a[3], zip(nc[0][i], nc[1][i], nc[2][i], nc[3][i])))
+                self.ncsum[i] = 0
+                for j in range(len(self.nc[i])):
+                    new = 0
+                    for k in range(len(nc)):
+                        new += nc[k][i][j] - self.nc[i][j]
+                    self.nc[i][j] += new
+                    self.ncsum[i] += self.nc[i][j]
 
-            self.ncsum = list(map(lambda a:a[0] + a[1] + a[2] + a[3], zip(ncsum[0],ncsum[1],ncsum[2],ncsum[3])))
+            #for i in range(len(self.nc)):
+                #self.nc[i] = list(map(lambda a: sum(a), list(zip(*list(item[i] for item in nc)))))
 
-            self.nd = nd[0] + nd[1] + nd[2] + nd[3]
-            self.word = word[0] + word[1] + word[2] + word[3]
-            self.inventor = inventor[0] + inventor[1] + inventor[2] + inventor[3]
+            #self.ncsum = list(map(lambda a: sum(a), list(zip(*ncsum))))
+            #del self.nd
+            self.nd = []
+            for content in nd:
+                self.nd += content
 
-            self.middle_save((t+1) * int(self.iternum/10))
+            #self.nd = nd[0] + nd[1] + nd[2] + nd[3]
+            #del self.word
+            self.word = []
+            for content in word:
+                self.word += content
+
+            #del self.inventor
+            self.inventor = []
+            for content in inventor:
+                self.inventor += content
+
+            self.middle_save((t+1) * self.savenum)
 
         for x in range(self.A):
             for k in range(self.K):
@@ -237,7 +274,7 @@ class ICT():
 
     #主进程，吉布斯采样过程
     def process(self, patentinf, doclen, word, inventor, nw, nwsum, m, msum, nc, ncsum, nd):
-        for i in tqdm(range(int(self.iternum/20))):
+        for i in tqdm(range(self.savenum)):
             for p in range(len(patentinf)):
                 for q in range(doclen[p]):
                     topic_id = word[p][q]
@@ -459,6 +496,7 @@ class ICT():
                 self.ncsum[k] = float(topic[k])
 
         logging.info("参数文件读取成功")
+
 
 def func(client, patentinf, doclen, word, inventor, nw, nwsum, m, msum, nc, ncsum, nd):
     return client.process(patentinf, doclen, word, inventor, nw, nwsum, m, msum, nc, ncsum, nd)

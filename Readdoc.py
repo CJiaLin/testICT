@@ -3,11 +3,12 @@
 #主程序，用于处理文档、运行模型等
 import logging
 import operator
-import os
 import pandas as pd
-#from Duedoc import Duedoc
-from DuedocByTFIDF import Duedoc
+from Duedoc import Duedoc
+#from DuedocByTFIDF import Duedoc
+#from DuedocByTFIDF import DueEnDoc
 #from ICTmodel import ICT
+import json
 from ICTModelParallel import ICT
 from ResultTest import resulttest
 
@@ -23,9 +24,38 @@ length = []
 M = 0
 K = 0
 
-def readdoc():
-    filepath = './document'
-    files = os.listdir(filepath)
+with open('./document/G06N_new.csv', 'r', encoding='utf-8') as f:
+    csv_f = pd.read_csv(f)
+
+def readdoc():#G06N_new
+    patentinf = []
+    testinf = []
+    titles = []
+    #M = len(files)
+    length_single = 0
+    #提取文件中专利的简介、公司、发明人信息
+    number = csv_f['PN']
+    date = csv_f['PD']
+    abstract = csv_f['ABS']
+    inventors = csv_f['INV']
+    companies = csv_f['PA']
+    title = csv_f['TI']
+    for i in range(len(abstract)):
+        inventor = inventors[i].split(';')[:-1]
+        company = companies[i].split(';')[:-1]
+        patentinf.append([title[i], abstract[i], inventor, company, number[i]])
+        titles.append(title[i])
+        '''if date[i][0:4] != '2017':
+            patentinf.append([title[i],abstract[i],inventor,company])
+            titles.append(title[i])
+        else:
+            patentinf.append([title[i],abstract[i],inventor,company])
+            titles.append(title[i])
+            testinf.append([title[i],inventor,company])'''
+    logger.info("专利数据读取成功！")
+    return patentinf,testinf,titles,abstract
+
+def readUSPTO():
     patentinf = []
     testinf = []
     titles = []
@@ -33,26 +63,20 @@ def readdoc():
     #M = len(files)
     length_single = 0
     #提取文件中专利的简介、公司、发明人信息
-    for file in files:
-        if not os.path.isdir(file):
-            f = open(filepath+'/'+file,encoding='utf-8')
+    with open('./document/patent_inf.csv','r',encoding='utf-8') as f:
             csv_f = pd.read_csv(f)
-            date = csv_f['AD']
-            abstract = csv_f['ABS']
-            inventors = csv_f['INV']
-            companies = csv_f['PA']
-            title = csv_f['TI']
+            #date = csv_f['date']
+            number = csv_f['number']
+            abstract = csv_f['abstract']
+            inventors = csv_f['inventor']
+            companies = csv_f['company']
+            title = csv_f['title']
             for i in range(len(abstract)):
                 inventor = inventors[i].split(';')[:-1]
                 company = companies[i].split(';')[:-1]
                 #patentinf.append([abstract[i], inventor, company])
-                if date[i][0:4] != '2017':
-                    patentinf.append([title[i],abstract[i],inventor,company])
-                    titles.append(title[i])
-                else:
-                    patentinf.append([title[i],abstract[i],inventor,company])
-                    titles.append(title[i])
-                    testinf.append([title[i],inventor,company])
+                patentinf.append([title[i],abstract[i],inventor,company,number[i]])
+                titles.append(title[i])
 
     logger.info("专利数据读取成功！")
     return patentinf,testinf,titles,abstract
@@ -60,9 +84,10 @@ def readdoc():
 #分词、并对分词结果进行词频统计、计算TF-IDF等
 def duedoc(patentinf):
     doc = Duedoc(patentinf)
+    #doc = DueEnDoc(patentinf)
     #del(patentinf)
-    doc.due()
-    doc.duefenci()
+    #doc.due()
+    doc.duefenciBySubSampling()
     del doc
 
 #运行ICT模型获取结果
@@ -108,7 +133,7 @@ def saveinf(patentinf,topicnum):
             patentinf[i][0] = lines[i].split('----')[0].split(';')[:-1]
             patentinf[i][1] = lines[i].split('----')[1].split(';')[:-1]
 
-    ict = ICT(topicnum,100,length_all,length_single,patentinf,word2id,inventor2id,company2id)
+    ict = ICT(topicnum,1000,length_all,length_single,patentinf,word2id,inventor2id,company2id)
     ict.save()
 
 #获取每个主题下的Top30词
@@ -137,12 +162,12 @@ def outpu(topicnum):
             i += 1
 
     i = 0
-    with open('result/top30'+str(topicnum)+'.txt','w') as top:
+    with open('result/wordrank'+str(topicnum)+'.txt','w') as top:
         for item in result:
             top.write('topic' + str(i) + ':    ')
             print('topic' + str(i) + ':    ', end='')
             result_sort.append(sorted(item.items(), key=operator.itemgetter(1), reverse=True))
-            for content in result_sort[i][0:31]:
+            for content in result_sort[i][0:300]:
                 print(content[0] + '\t',end='')
                 top.write(content[0] + "\t")
             top.write('\n')
@@ -177,7 +202,7 @@ def outpu(topicnum):
     return perp_result'''
 
 #专利推荐测试
-def test(topicnum,patentinf,word):
+def test(topicnum,patentinf,word=''):
     inventor2id = {}
     company2id = {}
     with open('word_result/inventorsmap.txt','r',encoding='utf-8') as inventorsmap:
@@ -190,48 +215,73 @@ def test(topicnum,patentinf,word):
         for line in lines:
             company2id[line.split(':')[0]] = int(line.split(':')[1].strip('\n'))
 
+    with open('word_result/wordmap.txt', 'r', encoding='utf-8') as wordmap:
+        lines = wordmap.readlines()
+        for line in lines:
+            word2id[line.split(':')[0]] = int(line.split(':')[1])
+
     with open('word_result/fenci_final.txt','r',encoding='utf-8') as fenci:
         lines = fenci.readlines()
         for i in range(len(lines)):
             patentinf[i][0] = lines[i].split('----')[0].split(';')[:-1]
             patentinf[i][1] = lines[i].split('----')[1].split(';')[:-1]
 
-    result = resulttest(patentinf,word2id,inventor2id,company2id,word[:100],topicnum)
+    result = resulttest(patentinf,word2id,inventor2id,company2id,topicnum,sentence=word)
     #result.count()
-    result.topic_probability()
-    topdoc = result.select()
+    #topdoc = result.Sentence()
+    topdoc = result.Patent()
 
     return topdoc
 
+def GetTopic(topicnum,patentinf):
+    PatentTopic = {}
+    with open('./result/tau' + str(topicnum) + '.txt','r',encoding='utf-8') as tau:
+        lines = tau.readlines()
+        for i in range(len(lines)):
+            patent = lines[i].split('    ')[:-1]
+            PatentTopic[patentinf[i][4]] = patent.index(max(patent))
+
+    with open('./MatchResult/PatentTopic' + str(topicnum) + '.json','w',encoding='utf-8') as pt:
+        json.dump(PatentTopic,pt)
+
 if __name__ == "__main__":
-    topicnum = 10
+    topicnum = 15
     #topicnum = [5,10,15,20,25,30,35]
     perp = []
     patentinf,testinf,titles,abstract = readdoc()
+    #patentinf,testinf,titles,abstract = readUSPTO()
     duedoc(patentinf)
-    #saveinf(patentinf,topicnum)
-    #outpu(topicnum)
+    saveinf(patentinf.copy(),topicnum)
+    outpu(topicnum)
+    GetTopic(topicnum,patentinf)
 
     #del patentinf,testinf,titles,abstract
-    '''with open('word_result/wordmap.txt', 'r', encoding='utf-8') as wordmap:
-        lines = wordmap.readlines()
-        for line in lines:
-            word2id[line.split(':')[0]] = int(line.split(':')[1])
-
-    topdoc = test(topicnum, patentinf, testinf)
+    #sen = input("输入查询内容：")
+    topdoc = test(topicnum, patentinf.copy())
     result = []
     name = ['testtitle','top1','top2','top3','top4','top5','top6','top7','top8','top9','top10']
+
+    for patent in topdoc:
+        item = csv_f[csv_f['PN']==patent]
+        #result.append([item['TI'],',',item['INV'],',',item['ABS']])
+        print(item['TI'].real[0],',',item['INV'].real[0],',',item['ABS'].real[0])
 
     i = 0
     for patent in topdoc:
         result.append([])
-        result[i].append(testinf[i][0])
+        result[i].append(titles[i])
         for num in patent:
-            result[i].append(str(num) + ':' + titles[num] + '----' + abstract[num])
+            item = csv_f[csv_f['PN'] == num]
+            result[i].append(str(item['TI'].real[0])+ '----'+str(item['ABS'].real[0]))
         i += 1
 
     csv = pd.DataFrame(columns=name, data=result)
 
-    csv.to_csv('./result/topdoc' + str(topicnum) + '.csv')'''
+    csv.to_csv('./result/topdoc' + str(topicnum) + '.csv')
+
+    '''for patent in topdoc:
+        get = dict(csv_f[csv_f['PN'] == str(patent)])
+        result.append(get)'''
+
 
     logging.info("程序结束")

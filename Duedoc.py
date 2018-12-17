@@ -6,7 +6,6 @@ import pandas as pd
 from pandas import Series
 import logging
 
-
 logging.basicConfig(level=logging.DEBUG,
                     filename='logging.log',
                     filemode='a',
@@ -29,7 +28,7 @@ class Duedoc():
         self.word2id = {}
         self.text = []         #所有文档的所有词
         self.hotword = []      #记录高频词汇
-        self.edge = 3000        #高频词界限设定
+        self.edge = 3000000        #高频词界限设定
 
         while i < len(docs):
             self.content.append([])
@@ -51,8 +50,8 @@ class Duedoc():
         with open('word_result/fenci.txt', 'w', encoding='utf-8') as resultfile:
             resultfile.write('')
 
-        with open('word_result/stopword.txt', encoding='utf-8') as stopword:
-            stopwords = [line.strip() for line in stopword.readlines()]
+        with open('word_result/stopword.txt', encoding='utf-8') as st:
+            sw = [line.strip() for line in st.readlines()]
 
         try:
             for i in tqdm(range(len(self.content))):
@@ -62,8 +61,8 @@ class Duedoc():
                 self.title[i] = jieba.lcut(self.title[i])
 
                 # 移除停用词
-                self.seg_list[i] = [word for word in self.seg_lists[i] if (not word in stopwords and len(word) != 1)]
-                self.title[i] = [word for word in self.title[i] if (not word in stopwords and len(word) != 1)]
+                self.seg_list[i] = [word for word in self.seg_lists[i] if (not word in sw and len(word) != 1)]
+                self.title[i] = [word for word in self.title[i] if (not word in sw and len(word) != 1)]
 
                 # 保存初始分词结果
                 with open('word_result/fenci.txt', 'a', encoding='utf-8') as fencifile:
