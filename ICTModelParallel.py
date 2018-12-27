@@ -48,7 +48,7 @@ class ICT():
     mu = 0.0
     omega = 0.0
 
-    def __init__(self,topicnum,iternum,length_all,length_single,fenciinf,word2id,inventor2id,company2id):
+    def __init__(self,topicnum,iternum,length_all,length_single,fenciinf,word2id,inventor2id,company2id,newdata=None):
         self.K = int(topicnum)
         self.A = len(inventor2id)
         self.C = len(company2id)
@@ -376,7 +376,7 @@ class ICT():
             for m in range(self.M):
                 for n in range(self.doclength[m]):
                     w = self.fenciinf[m][0][n]
-                    tassign.write(str(self.word2id[w]) + ':' + str(self.word[m][n]) + '    ')
+                    tassign.write(str(self.word2id[w]) + ':' + str(self.word[m][n]) + '-' + str(self.inventor[m][n]) + '    ')
 
                 tassign.write('\n')
 
@@ -497,6 +497,46 @@ class ICT():
 
         logging.info("参数文件读取成功")
 
+    #训练新增数据
+    def new_data(self):
+        with open('./result/tau'+ str(self.K) + '.txt', 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            i = 0
+            for line in lines:
+                self.tau.append([])
+                words = line.split('    ')[:-1]
+                for word in words:
+                    self.tau[i].append(float(word))
+                i += 1
+
+        with open('./result/theta'+ str(self.K) + '.txt', 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            i = 0
+            for line in lines:
+                self.theta.append([])
+                words = line.split('    ')[:-1]
+                for word in words:
+                    self.theta[i].append(float(word))
+                i += 1
+
+        with open('./result/phi'+ str(self.K) + '.txt', 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            i = 0
+            for line in lines:
+                self.phi.append([])
+                topics = line.split('    ')[:-1]
+                for topic in topics:
+                    self.phi[i].append(float(topic))
+                i += 1
+
+        with open('./result/psi'+ str(self.K) + '.txt', 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            i = 0
+            for line in lines:
+                self.psi.append([])
+                words = line.split('    ')[:-1]
+                for word in words:
+                    self.psi[i].append(float(word))
 
 def func(client, patentinf, doclen, word, inventor, nw, nwsum, m, msum, nc, ncsum, nd):
     return client.process(patentinf, doclen, word, inventor, nw, nwsum, m, msum, nc, ncsum, nd)

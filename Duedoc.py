@@ -1,10 +1,11 @@
 # encoding: utf-8
-# 计算每篇文档词的TF-IDF
+# 利用TF-IDF处理分词
+# 利用SubSampling处理分词
 import jieba
 import re
-#from nltk.stem import PorterStemmer
-#from nltk.tokenize import word_tokenize
-#from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 from tqdm import tqdm
 import random
@@ -278,7 +279,7 @@ class Duedoc():
                     fencifile.write(word + ';')
                 fencifile.write('\n')
 
-'''class DueEnDoc():
+class DueEnDoc():
     def __init__(self,docs):
         i = 0
         self.docs = docs
@@ -510,12 +511,28 @@ class Duedoc():
 
         word_count = FreqDist(text)
         word_count = dict(sorted(word_count.items(), key=lambda  item:item[1],reverse=True))
+        self.word2id = {word:i for word,i in zip(word_count.keys(),range(len(word_count)))}
+        self.word2id = dict(sorted(self.word2id.items(), key=lambda  item:item[1]))
         with open('word_result/count.txt', 'w', encoding='utf-8') as countfile:
             for word,num in word_count.items():
                 countfile.write(word + ':' + str(num) + '\n')
                 
         with open('word_result/length.txt', 'w', encoding='utf-8') as lenfile:
-            for i in range(len(self.seg_list)):
+            for i in range(len(self.title)):
                 self.length_all[i] = len(self.title[i]) + len(self.content[i])
                 lenfile.write(str(self.length_all[i]) + '\n')
-'''
+
+        with open('word_result/wordmap.txt','w', encoding='utf-8') as wordmap:
+            for key,value in self.word2id.items():
+                wordmap.write(key + ':' + str(value) + '\n')
+
+        with open('word_result/fenci_final.txt', 'w', encoding='utf-8') as fencifile:
+            for i in range(len(self.title)):
+                for word in self.title[i]:
+                    fencifile.write(word + ';')
+
+                fencifile.write('----')
+
+                for word in self.content[i]:
+                    fencifile.write(word + ';')
+                fencifile.write('\n')

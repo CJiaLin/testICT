@@ -4,11 +4,11 @@
 import logging
 import operator
 import pandas as pd
-from Duedoc import Duedoc
 #from DuedocByTFIDF import Duedoc
-#from DuedocByTFIDF import DueEnDoc
+from Duedoc import DueEnDoc
 #from ICTmodel import ICT
 import json
+from tqdm import tqdm
 from ICTModelParallel import ICT
 from ResultTest import resulttest
 
@@ -23,17 +23,18 @@ word2id = {}
 length = []
 M = 0
 K = 0
-
-with open('./document/G06N_new.csv', 'r', encoding='utf-8') as f:
-    csv_f = pd.read_csv(f)
+csv_f = None
 
 def readdoc():#G06N_new
     patentinf = []
     testinf = []
     titles = []
+    global csv_f
     #M = len(files)
     length_single = 0
     #提取文件中专利的简介、公司、发明人信息
+    with open('./document/G06N_new.csv', 'r', encoding='utf-8') as f:
+        csv_f = pd.read_csv(f)
     number = csv_f['PN']
     date = csv_f['PD']
     abstract = csv_f['ABS']
@@ -78,13 +79,16 @@ def readUSPTO():
                 patentinf.append([title[i],abstract[i],inventor,company,number[i]])
                 titles.append(title[i])
 
+    test = pd.read_csv('document/test_all_149_paixu.tsv', sep='\t', header=None, error_bad_lines=False)
+    testinf = list(test[0])
+
     logger.info("专利数据读取成功！")
     return patentinf,testinf,titles,abstract
 
 #分词、并对分词结果进行词频统计、计算TF-IDF等
 def duedoc(patentinf):
-    doc = Duedoc(patentinf)
-    #doc = DueEnDoc(patentinf)
+    #doc = Duedoc(patentinf)
+    doc = DueEnDoc(patentinf)
     #del(patentinf)
     #doc.due()
     doc.duefenciBySubSampling()
@@ -162,14 +166,14 @@ def outpu(topicnum):
             i += 1
 
     i = 0
-    with open('result/wordrank'+str(topicnum)+'.txt','w') as top:
+    with open('result/wordrank'+str(topicnum)+'.txt','w',encoding='utf-8') as top:
         for item in result:
             top.write('topic' + str(i) + ':    ')
             print('topic' + str(i) + ':    ', end='')
             result_sort.append(sorted(item.items(), key=operator.itemgetter(1), reverse=True))
             for content in result_sort[i][0:300]:
-                print(content[0] + '\t',end='')
-                top.write(content[0] + "\t")
+                print(content[0] + '    ',end='')
+                top.write(content[0] + "    ")
             top.write('\n')
             print('\n',end='')
             i += 1
@@ -202,7 +206,7 @@ def outpu(topicnum):
     return perp_result'''
 
 #专利推荐测试
-def test(topicnum,patentinf,word=''):
+def test(topicnum,patentinf,testinf = None,word=''):
     inventor2id = {}
     company2id = {}
     with open('word_result/inventorsmap.txt','r',encoding='utf-8') as inventorsmap:
@@ -226,12 +230,11 @@ def test(topicnum,patentinf,word=''):
             patentinf[i][0] = lines[i].split('----')[0].split(';')[:-1]
             patentinf[i][1] = lines[i].split('----')[1].split(';')[:-1]
 
-    result = resulttest(patentinf,word2id,inventor2id,company2id,topicnum,sentence=word)
+    result = resulttest(patentinf,word2id,inventor2id,company2id,topicnum,testinf,sentence=word)
     #result.count()
     #topdoc = result.Sentence()
-    topdoc = result.Patent()
-
-    return topdoc
+    result.Patent()
+    #result.Company()
 
 def GetTopic(topicnum,patentinf):
     PatentTopic = {}
@@ -247,41 +250,32 @@ def GetTopic(topicnum,patentinf):
 if __name__ == "__main__":
     topicnum = 15
     #topicnum = [5,10,15,20,25,30,35]
-    perp = []
-    patentinf,testinf,titles,abstract = readdoc()
-    #patentinf,testinf,titles,abstract = readUSPTO()
-    duedoc(patentinf)
-    saveinf(patentinf.copy(),topicnum)
-    outpu(topicnum)
-    GetTopic(topicnum,patentinf)
+    #patentinf,testinf,titles,abstract = readdoc()
+    patentinf,testinf,titles,abstract = readUSPTO()
+    #duedoc(patentinf)
+    #saveinf(patentinf.copy(),topicnum)
+    #outpu(topicnum)
+    #GetTopic(topicnum,patentinf.copy())
 
     #del patentinf,testinf,titles,abstract
     #sen = input("输入查询内容：")
-    topdoc = test(topicnum, patentinf.copy())
-    result = []
-    name = ['testtitle','top1','top2','top3','top4','top5','top6','top7','top8','top9','top10']
+    test(topicnum, patentinf.copy(),testinf.copy())
+    '''result = []
 
-    for patent in topdoc:
-        item = csv_f[csv_f['PN']==patent]
-        #result.append([item['TI'],',',item['INV'],',',item['ABS']])
-        print(item['TI'].real[0],',',item['INV'].real[0],',',item['ABS'].real[0])
+    name = ['testtitle','top1','top2','top3','top4','top5','top6','top7','top8','top9','top10']
+    with open('./MatchResult/PatentDoc' + str(topicnum) + '.json','r',encoding='utf-8') as pt:
+        PatentDoc = json.load(pt)
 
     i = 0
-    for patent in topdoc:
+    for key,value in tqdm(PatentDoc.items()):
+        #test = csv_f[csv_f['PN'] == key]['TI'].real[0]
         result.append([])
-        result[i].append(titles[i])
-        for num in patent:
-            item = csv_f[csv_f['PN'] == num]
-            result[i].append(str(item['TI'].real[0])+ '----'+str(item['ABS'].real[0]))
+        result[i].append(str(csv_f[csv_f['PN'] == key]['TI'].real[0]))
+        for item in value:
+            result[i].append(str(csv_f[csv_f['PN'] == item]['TI'].real[0]) + '----' + str(csv_f[csv_f['PN'] == item]['ABS'].real[0]))
         i += 1
 
     csv = pd.DataFrame(columns=name, data=result)
-
-    csv.to_csv('./result/topdoc' + str(topicnum) + '.csv')
-
-    '''for patent in topdoc:
-        get = dict(csv_f[csv_f['PN'] == str(patent)])
-        result.append(get)'''
-
+    csv.to_csv('./MatchResult/TopDoc' + str(topicnum) + '.csv')'''
 
     logging.info("程序结束")
